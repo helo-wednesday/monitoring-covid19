@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    MONITORING COVID-19
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="../assets/css/material-dashboard.css?v=2.1.0" rel="stylesheet" />
+  <!-- CSS Just for demo purpose, don't include it in your project -->
+  <link href="../assets/demo/demo.css" rel="stylesheet" />
+</head>
+
+<body class="dark-edition">
+  <div class="wrapper ">
+   
+    <div class="sidebar" data-color="purple" data-background-color="black" data-image="../assets/img/corona.png">
+      <!--
+        Tip 1: You can change the color of the sidebar using: data-color="purple | azure | green | orange | danger"
+
+        Tip 2: you can also add an image using data-image tag
+    -->
+      <div class="logo"><a href="./dashboard.html" class="simple-text logo-normal">
+          Aji Masaid
+        </a></div>
+      <div class="sidebar-wrapper">
+        <ul class="nav">
+          <li class="nav-item active  ">
+            <a class="nav-link" href="./dashboard.html">
+              <i class="material-icons">dashboard</i>
+              <p>Dashboard</p>
+            </a>
+          </li>
+         
+          <li class="nav-item ">
+            <a class="nav-link" href="./map.html">
+              <i class="material-icons">location_ons</i>
+              <p>Maps</p>
+            </a>
+          </li>  
+        </ul>
+      </div>
+    </div>
+    <div class="main-panel">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top " id="navigation-example">
+        <div class="container-fluid">
+          <div class="navbar-wrapper">
+            <a class="text--white" href="javascript:void(0)">Covid-19 Monitoring Indonesia and Surabaya</a>
+          </div>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation" data-target="#navigation-example">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+            <span class="navbar-toggler-icon icon-bar"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end">
+            <!--<form class="navbar-form">
+              <div class="input-group no-border">
+                <input type="text" value="" class="form-control" placeholder="Search...">
+                <button type="submit" class="btn btn-default btn-round btn-just-icon">
+                  <i class="material-icons">search</i>
+                  <div class="ripple-container"></div>
+                </button>
+              </div>
+            </form>-->
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="javascript:void(0)">
+                  <i class="material-icons">dashboard</i>
+                  <p class="d-lg-none d-md-block">
+                    Stats
+                  </p>
+                </a>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- End Navbar -->
+
+      <!-- Kasus indonesia -->
+    
+      <div class="content">
+        <div class="container-fluid">
+            <h2> Status Indonesia <span id="name"></span></h2>
+          <div class="row">
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-chart">
+                <div class="card-header card-header-success">
+                  <h4 class="text--white">TOTAL POSITIF</h4>
+                  <span id="positif"></span>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">ORANG</h4>
+
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-chart">
+                <div class="card-header card-header-warning">
+                  <p class="text--white">KASUS HARI INI</p>
+                  <span id="dirawat"></span>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">ORANG</h4>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-chart">
+                <div class="card-header card-header-danger">
+                  <p class="text--white">TOTAL MENINGGAL</p>
+                  <span id="meninggal"></span>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">ORANG</h4>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-chart">
+                <div class="card-header card-header-primary">
+                  <p class="text--white">TOTAL SEMBUH</p>
+                  <span id="sembuh"></span>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">ORANG</h4>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>            
+          </div>
+          <!-- End indonesia-->
+      
+
+          <!-- sidoarjo -->
+
+      <div class="content">
+        <div class="container-fluid">
+          <h2> Status Surabaya </h2>
+          <div class="row">
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-chart">
+                <div class="card-header card-header-success">
+                  <p class="text--white">TOTAL POSITIF</p>
+                  <h3></h3>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">ORANG</h4>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-chart">
+                <div class="card-header card-header-warning">
+                  <p class="text--white">KASUS HARI INI</p>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">ORANG</h4>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-chart">
+                <div class="card-header card-header-danger">
+                  <p class="text--white">TOTAL MENINGGAL</p>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">ORANG</h4>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-3 col-lg-6">
+              <div class="card card-chart">
+                <div class="card-header card-header-primary">
+                  <p class="text--white">TOTAL SEMBUH</p>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">ORANG</h4>
+                </div>
+                <div class="card-footer">
+                  <div class="stats">
+                    <i class="material-icons">access_time</i> updated 4 minutes ago
+                  </div>
+                </div>
+              </div>
+            </div>            
+          </div>
+
+          <!-- end sidoarjo -->
+
+          <!-- data kasus indonesia  -->
+
+
+          <div class="row">
+            <div class="col-md-6 col-lg-12">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <h4 class="card-title">Data Kasus Coronavirus di Indonesia Berdasarkan Provinsi</h4>
+                 
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>Provinsi</th>
+                      <th>Positif</th>
+                      <th>Sembuh</th>
+                      <th>Meninggal</th>
+                    </thead>
+                    <!--
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Dakota Rice</td>
+                        <td>$36,738</td>
+                        <td>Niger</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Minerva Hooper</td>
+                        <td>$23,789</td>
+                        <td>Curaçao</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Sage Rodriguez</td>
+                        <td>$56,142</td>
+                        <td>Netherlands</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>Philip Chaney</td>
+                        <td>$38,735</td>
+                        <td>Korea, South</td>
+                      </tr>
+                    </tbody>
+                  -->
+                  </table>
+                </div>
+              </div>
+            </div>
+
+             <!-- data kasus sidoarjo  -->
+
+          <div class="row">
+            <div class="col-md-6 col-lg-12">
+              <div class="card">
+                <div class="card-header card-header-danger">
+                  <h4 class="card-title">Data Kasus Coronavirus di Surabaya</h4>
+                 
+                </div>
+                <div class="card-body table-responsive">
+                  <table class="table table-hover">
+                    <thead class="text-warning">
+                      <th>ID</th>
+                      <th>Umur</th>
+                      <th>Status</th>
+                      <th>Provinsi</th>
+                    </thead>
+                    <!--
+                    <tbody>
+                      <tr>
+                        <td>1</td>
+                        <td>Dakota Rice</td>
+                        <td>$36,738</td>
+                        <td>Niger</td>
+                      </tr>
+                      <tr>
+                        <td>2</td>
+                        <td>Minerva Hooper</td>
+                        <td>$23,789</td>
+                        <td>Curaçao</td>
+                      </tr>
+                      <tr>
+                        <td>3</td>
+                        <td>Sage Rodriguez</td>
+                        <td>$56,142</td>
+                        <td>Netherlands</td>
+                      </tr>
+                      <tr>
+                        <td>4</td>
+                        <td>Philip Chaney</td>
+                        <td>$38,735</td>
+                        <td>Korea, South</td>
+                      </tr>
+                    </tbody>
+                  -->
+                  </table>
+                </div>
+              </div>
+            </div>
+
+      <!--  end data kasus sidoarjo  -->
+
+      <!--  footer  -->
+
+      <footer class="footer">
+        <div class="container-fluid">
+          <nav class="float-left">
+            <ul>
+              <li>
+                <a href="https://muhammadcode.000webhostapp.com/">
+                  Portfolio
+                </a>
+              </li>
+              <li>
+                <a href="https://creative-tim.com/presentation">
+                  Dashboard
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/helo-wednesday">
+                  Github
+                </a>
+              </li>
+              <li>
+                <a href="https://www.linkedin.com/in/aji-masaid-2899301a4/">
+                  Linked 
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="copyright float-right" id="date">
+            , made with <i class="material-icons">favorite</i> by
+            <a href="./dashboard.html" target="_blank">Aji Masaid</a>
+          </div>
+        </div>
+      </footer>
+
+      <!--  end footer  -->
+      </div>
+    </div>
+
+  <!--   Core JS Files   -->
+          <script src="../assets/js/core/jquery.min.js"></script>
+          <script src="../assets/js/core/popper.min.js"></script>
+          <script src="../assets/js/core/bootstrap-material-design.min.js"></script>
+          <script src="https://unpkg.com/default-passive-events"></script>
+          <script src="../assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+          <!-- Place this tag in your head or just before your close body tag. -->
+          <script async defer src="https://buttons.github.io/buttons.js"></script>
+          <!--  Google Maps Plugin    -->
+          <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
+          <!-- Chartist JS -->
+          <script src="../assets/js/plugins/chartist.min.js"></script>
+          <!--  Notifications Plugin    -->
+          <script src="../assets/js/plugins/bootstrap-notify.js"></script>
+          <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+          <script src="../assets/js/material-dashboard.js?v=2.1.0"></script>
+          <!-- Material Dashboard DEMO methods, don't include it in your project! -->
+  </body>
+</html>
+
+    <script type="text/javascript">
+        fetch('https://api.kawalcorona.com/indonesia')
+        .then((response)=>{
+          return response.json();
+        })
+        .then((data)=>{
+          [
+              {
+                "name": "Indonesia",
+                "positif": "514",
+                "sembuh": "29",
+                "meninggal": "48"
+              }
+          ]
+
+
+        })
+    </script>
+
+
+
+          document.getElementById("name").innerHTML = data.name;
+          document.getElementById("positif").innerHTML = data.positif;
+          document.getElementById("dirawat").innerHTML = data.dirawat;
+          document.getElementById("meninggal").innerHTML = data.meninggal;
+          document.getElementById("sembuh").innerHTML = data.sembuh;
+
+
+          
